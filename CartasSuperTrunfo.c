@@ -2,7 +2,7 @@
 
 // estrutura das cartas
 typedef struct {
-    char codigo[4];
+    char codigo[4]; // Ex: A01, B02
     unsigned long int populacao;
     float area;
     float pib;
@@ -32,11 +32,11 @@ int main() {
     scanf("%s", carta1.codigo);
     printf("População: ");
     scanf("%lu", &carta1.populacao);
-    printf("Área: ");
+    printf("Área:  (em km²)");
     scanf("%f", &carta1.area);
     printf("PIB (em bilhões): ");
     scanf("%f", &carta1.pib);
-    printf("Pontos turísticos: ");
+    printf("Número de pontos turísticos: ");
     scanf("%d", &carta1.pontosTuristicos);
 
     // Cálculos da carta 1
@@ -55,11 +55,11 @@ int main() {
     scanf("%s", carta2.codigo);
     printf("População: ");
     scanf("%lu", &carta2.populacao);
-    printf("Área: ");
+    printf("Área: (em km²)");
     scanf("%f", &carta2.area);
     printf("PIB (em bilhões): ");
     scanf("%f", &carta2.pib);
-    printf("Pontos turísticos: ");
+    printf("Número de pontos turísticos: ");
     scanf("%d", &carta2.pontosTuristicos);
 
     // Cálculos da carta 2
@@ -106,5 +106,3 @@ int main() {
 
     return 0;
 }
-
-
