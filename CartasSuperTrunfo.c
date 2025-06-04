@@ -40,14 +40,33 @@ int main() {
     scanf("%d", &carta1.pontosTuristicos);
 
     // Cálculos da carta 1
-    carta1.densidadePopulacional = carta1.populacao / carta1.area;
-    carta1.pibPerCapita = (carta1.pib * 1000000000) / carta1.populacao;
-    carta1.superPoder = carta1.populacao +
-                        carta1.area +
-                        carta1.pib +
-                        carta1.pontosTuristicos +
-                        carta1.pibPerCapita +
-                        (1.0f / carta1.densidadePopulacional);
+
+    // Para densidade
+    if (carta1.area != 0) {
+    carta1.densidadePopulacional = (float)carta1.populacao / carta1.area;
+    } 
+    else {
+    carta1.densidadePopulacional = 0; // Ou algum outro tratamento para área zero
+    }
+    // Para PIB per Capita
+    if (carta1.populacao != 0) {
+    carta1.pibPerCapita = (carta1.pib * 1000000000.0) / (float)carta1.populacao;
+    } 
+    else {
+    carta1.pibPerCapita = 0; // Ou tratamento para população zero
+    }
+
+    // Para o termo do Super Poder
+    float termo_inverso_densidade1 = 0;
+    if (carta1.densidadePopulacional != 0) {
+    termo_inverso_densidade1 = 1.0f / carta1.densidadePopulacional;
+    }
+    carta1.superPoder = (float)carta1.populacao + // Cast para float aqui para consistência na soma
+                    carta1.area +
+                    (carta1.pib * 1000000000.0) + // Usar o PIB em reais na soma do Super Poder
+                    (float)carta1.pontosTuristicos + // Cast
+                    carta1.pibPerCapita + 
+                    termo_inverso_densidade1;
 
     // Cadastro carta2
     printf("\nCarta 2\n");
@@ -63,14 +82,33 @@ int main() {
     scanf("%d", &carta2.pontosTuristicos);
 
     // Cálculos da carta 2
-    carta2.densidadePopulacional = carta2.populacao / carta2.area;
-    carta2.pibPerCapita = (carta2.pib * 1000000000) / carta2.populacao;
-    carta2.superPoder = carta2.populacao +
-                        carta2.area +
-                        carta2.pib +
-                        carta2.pontosTuristicos +
-                        carta2.pibPerCapita +
-                        (1.0f / carta2.densidadePopulacional);
+
+    // Para densidade
+    if (carta2.area != 0) {
+    carta2.densidadePopulacional = (float)carta2.populacao / carta2.area;
+    } 
+    else {
+    carta2.densidadePopulacional = 0; // Ou algum outro tratamento para área zero
+    }
+    // Para PIB per Capita
+    if (carta2.populacao != 0) {
+    carta2.pibPerCapita = (carta2.pib * 1000000000.0) / (float)carta2.populacao;
+    } 
+    else {
+    carta2.pibPerCapita = 0; // Ou tratamento para população zero
+    }
+
+    // Para o termo do Super Poder
+    float termo_inverso_densidade2 = 0;
+    if (carta2.densidadePopulacional != 0) {
+    termo_inverso_densidade2 = 1.0f / carta2.densidadePopulacional;
+    }
+    carta2.superPoder = (float)carta2.populacao + // Cast para float aqui para consistência na soma
+                    carta2.area +
+                    (carta2.pib * 1000000000.0) + // Usar o PIB em reais na soma do Super Poder
+                    (float)carta2.pontosTuristicos + // Cast
+                    carta2.pibPerCapita + 
+                    termo_inverso_densidade2;
 
 
     // Exibição dos dados
